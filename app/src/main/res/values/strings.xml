@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">AMOLabs</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_lab1_task1">Lab1Task1</string>
+    <string name="lab1task1">Lab1Task1</string>
+    <string name="_1_1">Лабораторна робота 1, завдання 1</string>
+    <string name="a">Параметр A</string>
+    <string name="b">Параметр B</string>
+    <string name="c">Параметр C</string>
+    <string name="d">Параметр D</string>
+    <string name="calculate">Calculate</string>
+    <string name="main_1">Лабораторні роботи</string>
+    <string name="main_2">З курсу АМО</string>
+    <string name="main_3">Виконав студент гр. ІВ-72</string>
+    <string name="main_4">Корєнев Олександр</string>
+    <string name="main_5">Залікова №ІВ-7210</string>
+</resources>
