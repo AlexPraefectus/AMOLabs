@@ -31,6 +31,10 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, Lab1Task1::class.java)
                 startActivity(intent)
             }
+            R.id.lab1task2 -> {
+                val intent = Intent(this, Lab1Task2::class.java)
+                startActivity(intent)
+            }
             else -> super.onOptionsItemSelected(item)
         }
         return when (item.itemId) {

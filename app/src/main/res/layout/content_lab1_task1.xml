@@ -12,7 +12,7 @@
     <TextView
             android:text="@string/_1_1"
             android:layout_width="355dp"
-            android:layout_height="20dp" android:id="@+id/textView"
+            android:layout_height="32dp" android:id="@+id/textView"
             android:layout_marginTop="28dp" app:layout_constraintTop_toTopOf="parent"
             android:textSize="18sp" android:layout_marginStart="24dp" app:layout_constraintStart_toStartOf="parent"/>
     <EditText

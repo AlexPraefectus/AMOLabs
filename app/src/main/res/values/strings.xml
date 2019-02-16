@@ -8,10 +8,16 @@
     <string name="b">Параметр B</string>
     <string name="c">Параметр C</string>
     <string name="d">Параметр D</string>
-    <string name="calculate">Calculate</string>
+    <string name="calculate">Обрахувати</string>
     <string name="main_1">Лабораторні роботи</string>
     <string name="main_2">З курсу АМО</string>
     <string name="main_3">Виконав студент гр. ІВ-72</string>
     <string name="main_4">Корєнев Олександр</string>
     <string name="main_5">Залікова №ІВ-7210</string>
+    <string name="title_activity_lab2_task2">Lab2Task2</string>
+    <string name="lab1_task2_header">Лабораторна робота1, завдання 2</string>
+    <string name="k_param">Параметр k</string>
+    <string name="param_a">Параметр a</string>
+    <string name="param_c">Параметр c</string>
+    <string name="menu_lab1task2">Lab1Task2</string>
 </resources>
