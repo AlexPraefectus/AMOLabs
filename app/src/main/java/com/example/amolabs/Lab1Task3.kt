@@ -14,31 +14,22 @@ class Lab1Task3 : AppCompatActivity() {
 
     private fun calculateResult(p:Int, a: Double, b:Double): Double{
         var sum = 0.0
-        var sum2 = 0.0
         var sumInner1 = 0.0
         var sumInner2 = 0.0
-        for (i in 1 .. p){
-            for (j in 1 .. p){
-                for (k in 1 .. p){
-                    sum += i * i * i * j * j * sqrt(a + b)
-                }
-            }
-        }
         for (i in 1 .. p){
             sumInner1 = 0.0
             for (j in 1 .. p){
                 sumInner2 = 0.0
                 for (k in 1 .. p){
-                    sumInner2 += i * j * k
+                    sumInner2 += (i * j * k)
                 }
-                sumInner1 += i * j * sumInner2
-                alertView("$sumInner1")
+                sumInner1 += (i * j * sumInner2)
+                print("Inner2 $sumInner2 Inner1: $sumInner1\n")
             }
-            sum2 += sumInner1
-            alertView("$sumInner2")
+            sum += i * sumInner1
+            print("Inner1: $sumInner1\n")
         }
-        sum2 *= sqrt(a + b)
-        alertView("$sum, $sum2")
+        sum *= sqrt(a + b)
         return sum
     }
 
