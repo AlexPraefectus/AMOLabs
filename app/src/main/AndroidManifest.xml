@@ -12,6 +12,15 @@
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
         <activity
+                android:name=".Lab1Task3"
+                android:label="@string/title_activity_lab1_task3"
+                android:parentActivityName=".MainActivity"
+                android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.example.amolabs.MainActivity"/>
+        </activity>
+        <activity
                 android:name=".Lab1Task2"
                 android:label="@string/title_activity_lab2_task2"
                 android:parentActivityName=".MainActivity"

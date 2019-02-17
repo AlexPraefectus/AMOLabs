@@ -35,7 +35,12 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, Lab1Task2::class.java)
                 startActivity(intent)
             }
+            R.id.lab1task3 -> {
+                val intent = Intent(this, Lab1Task3::class.java)
+                startActivity(intent)
+            }
             else -> super.onOptionsItemSelected(item)
+
         }
         return when (item.itemId) {
 //            R.id.action_settings -> true

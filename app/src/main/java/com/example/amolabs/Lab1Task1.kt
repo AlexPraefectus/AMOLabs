@@ -38,10 +38,10 @@ class Lab1Task1 : AppCompatActivity() {
         val d = editText6
         button.setOnClickListener{
             if (a.text.isNotEmpty() && b.text.isNotEmpty() && c.text.isNotEmpty() && d.text.isNotEmpty()){ // all params required
-                var paramA: Double = Double.NaN
-                var paramB: Double = Double.NaN
-                var paramC: Double = Double.NaN
-                var paramD: Double = Double.NaN
+                var paramA: Double
+                var paramB: Double
+                var paramC: Double
+                var paramD: Double
                 try{
                     paramA = a.text.toString().toDouble()
                     paramB = b.text.toString().toDouble()
@@ -50,6 +50,7 @@ class Lab1Task1 : AppCompatActivity() {
                 }
                 catch (e:NumberFormatException){
                     alertView("Can't convert to your input to numbers")
+                    return@setOnClickListener
                 }
                 val result = calculateResult(paramA, paramB, paramC, paramD)
                 if (result.equals(Double.NaN) || result.equals(Double.POSITIVE_INFINITY) || result.equals(Double.NEGATIVE_INFINITY)){

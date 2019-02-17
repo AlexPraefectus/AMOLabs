@@ -5,4 +5,5 @@
     <item android:title="@string/lab1task1" android:orderInCategory="101" android:id="@+id/lab1task1"
           android:enabled="true" android:visible="true" android:checkable="false"/>
     <item android:title="@string/menu_lab1task2" android:orderInCategory="102" android:id="@+id/lab1task2"/>
+    <item android:title="@string/menu_lab1task3" android:orderInCategory="103" android:id="@+id/lab1task3"/>
 </menu>

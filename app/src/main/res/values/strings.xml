@@ -19,5 +19,10 @@
     <string name="k_param">Параметр k</string>
     <string name="param_a">Параметр a</string>
     <string name="param_c">Параметр c</string>
+    <string name="i">Параметр i</string>
+    <string name="j">Параметр j</string>
     <string name="menu_lab1task2">Lab1Task2</string>
+    <string name="menu_lab1task3">Lab1Task3</string>
+    <string name="title_activity_lab1_task3">Lab1Task3</string>
+    <string name="lab1_task3_header">Лабораторна робота 1, завдання 3</string>
 </resources>
