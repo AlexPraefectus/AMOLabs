@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import com.example.amolabs.lab2.Lab2Activity
 
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -37,6 +38,10 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.lab1task3 -> {
                 val intent = Intent(this, Lab1Task3::class.java)
+                startActivity(intent)
+            }
+            R.id.lab2 -> {
+                val intent = Intent(this, Lab2Activity::class.java)
                 startActivity(intent)
             }
             else -> super.onOptionsItemSelected(item)

@@ -25,4 +25,5 @@
     <string name="menu_lab1task3">Lab1Task3</string>
     <string name="title_activity_lab1_task3">Lab1Task3</string>
     <string name="lab1_task3_header">Лабораторна робота 1, завдання 3</string>
+    <string name="title_activity_lab2">Lab2</string>
 </resources>

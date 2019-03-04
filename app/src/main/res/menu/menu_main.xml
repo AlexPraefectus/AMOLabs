@@ -6,4 +6,5 @@
           android:enabled="true" android:visible="true" android:checkable="false"/>
     <item android:title="@string/menu_lab1task2" android:orderInCategory="102" android:id="@+id/lab1task2"/>
     <item android:title="@string/menu_lab1task3" android:orderInCategory="103" android:id="@+id/lab1task3"/>
+    <item android:title="ЛР2" android:orderInCategory="104" android:id="@+id/lab2"/>
 </menu>
