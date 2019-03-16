@@ -86,7 +86,10 @@ class Lab2Activity : AppCompatActivity() {
                 if (!lab2switchDescending.isChecked && lab2SwitchOptimization.isChecked){
                     this.strategy = BubbleSort()
                 }
+                var timeStart = System.currentTimeMillis()
                 this.input = this.strategy.sort(this.input)
+                var timeEnd = System.currentTimeMillis()
+                alertView("Сортування виконано за %d мілісекунд".format(timeEnd - timeStart))
                 updateTextView()
             }else{
                 alertView("Спроба відсортувати дані до вводу")

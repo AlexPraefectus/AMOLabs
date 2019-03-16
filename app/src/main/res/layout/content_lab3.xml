@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:showIn="@layout/activity_lab3"
+        tools:context=".lab3.Lab3Activity" android:minHeight="220dp" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/lab3ScrollView">
+    </ScrollView>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/chart"
+                android:layout_marginStart="13dp"
+                android:layout_width="380dp"
+                android:layout_height="250dp"/>
+        <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="number"
+                        android:ems="10"
+                        android:id="@+id/dotAmount" android:hint="Кількість точок"/>
+            </TableRow>
+            <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberSigned|numberDecimal"
+                        android:ems="10"
+                        android:id="@+id/rangeStart" android:hint="Початок"/>
+                <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberSigned|number|numberDecimal"
+                        android:ems="10"
+                        android:id="@+id/rangeEnd" android:hint="Кінець"/>
+            </TableRow>
+            <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                <RadioGroup
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:id="@+id/radio_group_lab3">
+                    <RadioButton
+                            android:text="Метод Лагранжа"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:id="@+id/lagrange"
+                            android:layout_weight="1"/>
+                    <RadioButton
+                            android:text="Метод Ньютона"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:id="@+id/newton"
+                            android:layout_weight="1"/>
+                    <RadioButton
+                            android:text="Метод Ейткена"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:id="@+id/eyetken"
+                            android:layout_weight="1"/>
+                </RadioGroup>
+            </TableRow>
+            <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:ems="10"
+                        android:id="@+id/editText8" android:hint="Кількість кроків"/>
+            </TableRow>
+            <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:id="@+id/interpolate_lab3"
+                        android:text="Виконати Інтерполяцію"/>
+                <Button
+                        android:text="Базові значення"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:id="@+id/base_vals_lab3"/>
+            </TableRow>
+            <TableRow android:layout_width="match_parent" android:layout_height="match_parent"
+                      android:id="@+id/textRow">
+                <TextView
+                        android:text="Масив точок:"
+                        android:layout_width="159dp"
+                        android:layout_height="wrap_content" android:id="@+id/textView11"/>
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+</RelativeLayout>
