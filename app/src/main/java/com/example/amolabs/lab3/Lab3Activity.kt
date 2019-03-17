@@ -20,7 +20,7 @@ import kotlin.collections.ArrayList
 import kotlin.math.cos
 import kotlin.math.pow
 import android.text.method.ScrollingMovementMethod
-import com.github.mikephil.charting.components.Description
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
 
 
 /**
@@ -49,6 +49,7 @@ fun getBaseVals(start: Double, end: Double, dotAmount: Int): ArrayList<Entry>{
 }
 
 class Lab3Activity : AppCompatActivity() {
+    var baseEntries = ArrayList<Entry>()
     var entries = ArrayList<Entry>()
 
     private fun alertView(message: String) {
@@ -69,13 +70,39 @@ class Lab3Activity : AppCompatActivity() {
         return res
     }
 
-    private fun drawEntries(){
-        val dataSet = LineDataSet(entries, "Значення") // add entries to dataset
-        dataSet.color = Color.CYAN
+    private fun drawBaseEntries(){
+        val dataSetCircleColors = ArrayList<Int>()
+        dataSetCircleColors.add(Color.BLUE)
+        val dataSet = LineDataSet(baseEntries, "Базові Значення") // add baseEntries to dataset
+        dataSet.color = Color.BLUE
+        dataSet.circleColors = dataSetCircleColors
         val lineData = LineData(dataSet)
         chart.data = lineData
-        textView11.text = entryListToString(entries)
+        textView11.text = entryListToString(baseEntries)
         chart.invalidate()
+    }
+
+    private fun drawEntries(){
+        val datasets = ArrayList<ILineDataSet>()
+
+        val base = LineDataSet(baseEntries, "Базові Значення")
+        val baseCircleColors = ArrayList<Int>()
+        baseCircleColors.add(Color.BLUE)
+        base.color = Color.BLUE
+        base.circleColors = baseCircleColors
+
+        val new = LineDataSet(entries, "Значення з інтерполяцією")
+        val newCircleColors = ArrayList<Int>()
+        newCircleColors.add(Color.RED)
+        new.color = Color.RED
+        new.circleColors = newCircleColors
+
+        datasets.add(new)
+        datasets.add(base)
+        val data = LineData(datasets)
+        chart.data = data
+        chart.invalidate()
+
     }
 
 
@@ -90,9 +117,9 @@ class Lab3Activity : AppCompatActivity() {
 
     private fun interpolate(){
         val interpolator:Interpolator
-        var dotsInBetween = 1
+        var dotsInBetween = 2
         try{
-            dotsInBetween = interpolation_steps.text.toString().toInt()
+            dotsInBetween = interpolation_steps.text.toString().toInt() + 1
         }catch (e: NumberFormatException){
             alertView("Некоректна кількість кроків інтерполяції, використано 1")
         }
@@ -102,29 +129,29 @@ class Lab3Activity : AppCompatActivity() {
             eyetken.id -> interpolator = EyetkenInterpolator()
             else -> interpolator = LagrangeInterpolator()
         }
-        val newEntries = ArrayList<Entry>(entries.size * (dotsInBetween + 1) - 1)
-        for(i in 0 until entries.size - 1){
-            newEntries.add(entries[i])
+        val newEntries = ArrayList<Entry>(baseEntries.size * (dotsInBetween + 1) - 1)
+        for(i in 0 until baseEntries.size - 1){
+            newEntries.add(baseEntries[i])
             for (j in 1..dotsInBetween){
-                newEntries.add(interpolator.interpolate(entries, entries[i].x + (entries[i+1].x - entries[i].x)/dotsInBetween*j))
+                newEntries.add(interpolator.interpolate(baseEntries, baseEntries[i].x + (baseEntries[i+1].x - baseEntries[i].x)/dotsInBetween*j))
             }
         }
-        newEntries.add(entries[entries.size-1])
+        newEntries.add(baseEntries[baseEntries.size-1])
         entries = newEntries
         drawEntries()
     }
 
     private fun drawBaseValues(){
         try {
-            entries = getBaseVals(
+            baseEntries = getBaseVals(
                 rangeStart.text.toString().toDouble(),
                 rangeEnd.text.toString().toDouble(),
                 dotAmount.text.toString().toInt())
         }catch (e: NumberFormatException){
             alertView("Некорректний формат введених номерів")
         }
-        if (entries.isEmpty()) return
-        drawEntries()
+        if (baseEntries.isEmpty()) return
+        drawBaseEntries()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
