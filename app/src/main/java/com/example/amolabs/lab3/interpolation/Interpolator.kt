@@ -6,5 +6,5 @@ interface Interpolator {
     /**
      * return new dot value
      */
-    public fun interpolate(dots: ArrayList<Entry>, newDot: Entry):Entry
+    public fun interpolate(dots: ArrayList<Entry>, newDot: Float):Entry
 }

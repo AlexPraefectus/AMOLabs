@@ -1,37 +1,21 @@
 package com.example.amolabs.lab3.interpolation
 
+import com.example.amolabs.lab3.factorial
 import com.example.amolabs.lab3.taskFunction
 import com.github.mikephil.charting.data.Entry
-import kotlin.math.max
-
 
 
 class LagrangeInterpolator:Interpolator {
-    override fun interpolate(dots: ArrayList<Entry>, newDot: Entry): Entry {
-        var min = Double.MAX_VALUE
-        var max = Double.MIN_VALUE
-        for (i:Entry in dots){
-            if (i.x < min) min = i.x.toDouble()
-            if (i.x > max) max = i.x.toDouble()
-
+    override fun interpolate(dots: ArrayList<Entry>, newDot: Float): Entry {
+        var sum_ = 0.0
+        var product:Double
+        for (i in 0 until dots.size){
+            product = 1.0
+            for (j in 0 until dots.size){
+                if (i != j) product *= ((newDot - dots[j].x) / (dots[i].x - dots[j].x))
+            }
+            sum_ += (product * dots[i].y)
         }
-        val step = (max - min)/dots.size
-        var sign = 1
-        var sum = 0.0
-        var mul = 1.0
-        if (dots.size % 2 == 1){
-            sign = -1
-        }
-
-        for (i in 0..dots.size){
-            for (j in 0..dots.size)
-                if (i == j) continue
-                mul *= ((newDot.x - dots[0].x)/step)
-
-            sum += mul / factorial(i) / factorial(dots.size - i)
-            mul = 1.0
-            sign *= -1
-        }
-        return Entry(sum.toFloat(), taskFunction(sum).toFloat())
+        return Entry(newDot, sum_.toFloat())
     }
 }

@@ -1,4 +1,4 @@
-package com.example.amolabs.lab3.interpolation
+package com.example.amolabs.lab3
 
 
 
