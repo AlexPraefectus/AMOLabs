@@ -6,6 +6,7 @@ import com.github.mikephil.charting.data.Entry
 
 
 class LagrangeInterpolator:Interpolator {
+
     override fun interpolate(dots: ArrayList<Entry>, newDot: Float): Entry {
         var sum_ = 0.0
         var product:Double

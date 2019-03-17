@@ -117,7 +117,8 @@ class Lab3Activity : AppCompatActivity() {
 
 
     private fun interpolate(){
-        val interpolator:Interpolator
+        if (baseEntries.isEmpty())return
+        var interpolator: Interpolator = LagrangeInterpolator()
         var dotsInBetween = 2
         try{
             dotsInBetween = interpolation_steps.text.toString().toInt() + 1
@@ -125,10 +126,14 @@ class Lab3Activity : AppCompatActivity() {
             alertView("Некоректна кількість кроків інтерполяції, використано 1")
         }
         when(radio_group_lab3.checkedRadioButtonId){
-            lagrange.id -> interpolator = LagrangeInterpolator()
-            newton.id -> interpolator = NewtonInterpolator()
-            eyetken.id -> interpolator = EyetkenInterpolator()
-            else -> interpolator = LagrangeInterpolator()
+            lagrange.id -> {
+                interpolator = LagrangeInterpolator()
+                alertView("Інтерполяцію буде виконано методом Лагранжа")
+            }
+            newton.id -> {
+                interpolator = NewtonInterpolator()
+                alertView("Інтерполяцію буде виконано методом Ньютона")
+            }
         }
         val newEntries = ArrayList<Entry>(baseEntries.size * (dotsInBetween + 1) - 1)
         for(i in 0 until baseEntries.size - 1){

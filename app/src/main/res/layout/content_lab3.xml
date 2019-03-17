@@ -62,11 +62,6 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content" android:id="@+id/newton"
                                 android:layout_weight="1"/>
-                        <RadioButton
-                                android:text="Метод Ейткена"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" android:id="@+id/eyetken"
-                                android:layout_weight="1"/>
                     </RadioGroup>
                     <EditText
                             android:layout_width="wrap_content"
