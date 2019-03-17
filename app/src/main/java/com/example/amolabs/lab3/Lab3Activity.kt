@@ -101,6 +101,7 @@ class Lab3Activity : AppCompatActivity() {
         datasets.add(base)
         val data = LineData(datasets)
         chart.data = data
+        textView11.text = entryListToString(entries)
         chart.invalidate()
 
     }
